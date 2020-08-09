@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<name>Best Answer</name>
+	<id>SychO:BestAnswer</id>
+	<type>modification</type>
+	<version>0.1.0</version>
+
+	<install for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
+		<readme type="file" parsebbc="true">README.txt</readme>
+		<redirect url="?action=admin;area=modsettings;sa=general" timeout="3000" type="inline">You will now be redirected to the default settings.</redirect>
+		<database>database.php</database>
+
+		<!-- files -->
+		<require-dir name="Sources" destination="$boarddir" />
+		<require-dir name="Themes" destination="$boarddir" />
+
+		<!-- hooks -->
+		<hook hook="integrate_pre_load" function="BestAnswer::init" file="$sourcedir/BestAnswer/BestAnswer.php" />
+	</install>
+
+	<uninstall for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
+		<!-- hooks -->
+		<hook hook="integrate_pre_load" function="BestAnswer::init" file="$sourcedir/BestAnswer/BestAnswer.php" reverse="true"/>
+
+		<!-- files -->
+		<remove-dir name="$sourcedir/FA-BoardIcons" />
+		<remove-file name="$languagedir/FA-BoardIcons.english.php" />
+	</uninstall>
+
+</package-info>
