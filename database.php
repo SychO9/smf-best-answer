@@ -33,7 +33,7 @@ $smcFunc['db_add_index'] ('{db_prefix}topics', array(
 ), '', 'update');
 
 // Insert default permission
-$smcFunc['db_insert']('',
+$smcFunc['db_insert']('ignore',
 	'{db_prefix}board_permissions',
 	array('permission' => 'string', 'id_group' => 'int', 'id_profile' => 'int', 'add_deny' => 'int'),
 	array(
