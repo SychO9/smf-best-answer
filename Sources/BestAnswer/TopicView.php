@@ -11,27 +11,6 @@ namespace SychO\BestAnswer;
 class TopicView
 {
 	/**
-	 * Registers the rest of the hooks
-	 */
-	public static function init()
-	{
-		if (empty($_GET['topic']))
-			return;
-
-		// good spot to load the language and template files
-		loadLanguage('BestAnswer');
-		loadTemplate('BestAnswer');
-
-		add_integration_function('integrate_display_topic', '\SychO\BestAnswer\TopicView::selectBestMsg', false);
-		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\TopicView::loadBestAnswer', false);
-		add_integration_function('integrate_prepare_display_context', '\SychO\BestAnswer\TopicView::prepareMsgContext', false);
-		add_integration_function('integrate_load_theme', '\SychO\BestAnswer\TopicView::addMinimalCss', false);
-		add_integration_function('integrate_buffer', '\SychO\BestAnswer\TopicView::buffer', false);
-
-		Actions::init();
-	}
-
-	/**
 	 * @hook integrate_display_topic
 	 * @param $topic_selects
 	 * @param $topic_tables

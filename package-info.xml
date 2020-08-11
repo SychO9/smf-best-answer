@@ -7,27 +7,27 @@
 	<version>0.1.0</version>
 
 	<install for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
-		<readme type="file" parsebbc="true">README.txt</readme>
+		<readme type="file" parsebbc="true">README.md</readme>
 		<redirect url="?action=admin;area=modsettings;sa=general" timeout="3000" type="inline">You will now be redirected to the default settings.</redirect>
 		<database>database.php</database>
 
 		<!-- files -->
-		<require-dir name="Sources" destination="$boarddir" />
-		<require-dir name="Themes" destination="$boarddir" />
+		<require-dir name="Sources" destination="$boarddir">Import Source Files</require-dir>
+		<require-dir name="Themes" destination="$boarddir">Import Theme Files</require-dir>
 
 		<!-- hooks -->
-		<hook hook="integrate_autoload" function="sycho_best_answer_autoload" file="$sourcedir/BestAnswer/autoload.php" />
+		<hook hook="integrate_pre_load" function="sycho_best_answer_boot" file="$sourcedir/BestAnswer/autoload.php" />
 	</install>
 
 	<uninstall for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
 		<!-- hooks -->
-		<hook hook="integrate_autoload" function="sycho_best_answer_autoload" file="$sourcedir/BestAnswer/autoload.php" reverse="true"/>
+		<hook hook="integrate_pre_load" function="sycho_best_answer_boot" file="$sourcedir/BestAnswer/autoload.php" reverse="true"/>
 
 		<!-- files -->
-		<remove-dir name="$sourcedir/BestAnswer" />
-		<remove-file name="$languagedir/BestAnswer.english.php" />
-		<remove-file name="$themedir/default/BestAnswer.template.php" />
-		<remove-file name="$themedir/default/images/post/tick-circle.png" />
+		<remove-dir name="$sourcedir/BestAnswer">Remove Source Files</remove-dir>
+		<remove-file name="$languagedir/BestAnswer.english.php">Remove English Language File</remove-file>
+		<remove-file name="$themedir/BestAnswer.template.php">Remove Theme Template File</remove-file>
+		<remove-file name="$themedir/images/post/tick-circle.png">Remove Icon</remove-file>
 	</uninstall>
 
 </package-info>

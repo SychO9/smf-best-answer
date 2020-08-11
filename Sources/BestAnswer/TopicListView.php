@@ -11,23 +11,6 @@ namespace SychO\BestAnswer;
 class TopicListView
 {
 	/**
-	 * Registers the rest of the hooks
-	 */
-	public static function init()
-	{
-		if (isset($_GET['board']) && Settings::isEnabledForBoard((int) $_GET['board']))
-		{
-			add_integration_function('integrate_message_index', '\SychO\BestAnswer\TopicListView::selectBestMsg', false);
-			add_integration_function('integrate_messageindex_buttons', '\SychO\BestAnswer\TopicListView::markSolvedTopics', false);
-		}
-		elseif (!empty($_GET['action']) && in_array($_GET['action'], array('unread', 'unreadreplies')))
-		{
-			add_integration_function('integrate_unread_list', '\SychO\BestAnswer\TopicListView::loadBestMsgs', false);
-			add_integration_function('integrate_unread_list', '\SychO\BestAnswer\TopicListView::markSolvedTopics', false);
-		}
-	}
-
-	/**
 	 * @hook integrate_unread_list
 	 */
 	public static function loadBestMsgs()

@@ -6,7 +6,15 @@
  * @license MIT
  */
 
-add_integration_function('integrate_pre_load_theme', '\SychO\BestAnswer\BestAnswer::init', false);
+/**
+ * This is done this way to register non permanent hooks (i.e not saved in the database)
+ * for easier maintenance as there are many hooks involved.
+ */
+function sycho_best_answer_boot()
+{
+	add_integration_function('integrate_autoload', 'sycho_best_answer_autoload', false);
+	add_integration_function('integrate_pre_load_theme', '\SychO\BestAnswer\BestAnswer::init', false);
+}
 
 /**
  * @hook integrate_autoload

@@ -11,15 +11,6 @@ namespace SychO\BestAnswer;
 class Permissions
 {
 	/**
-	 * Registers the rest of the hooks
-	 */
-	public static function init()
-	{
-		add_integration_function('integrate_load_permissions', '\SychO\BestAnswer\Permissions::addPermissions', false);
-		add_integration_function('integrate_helpadmin', '\SychO\BestAnswer\Permissions::loadHelpText', false);
-	}
-
-	/**
 	 * @hook integrate_load_permissions
 	 * @param array $permissionGroups
 	 * @param array $permissionList
