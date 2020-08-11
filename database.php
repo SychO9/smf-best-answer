@@ -31,3 +31,13 @@ $smcFunc['db_add_index'] ('{db_prefix}topics', array(
 	'name' 		=> 'idx_best_message',
 	'columns' 	=> array('id_best_msg', 'id_topic'),
 ), '', 'update');
+
+// Insert default permission
+$smcFunc['db_insert']('',
+	'{db_prefix}board_permissions',
+	array('permission' => 'string', 'id_group' => 'int', 'id_profile' => 'int', 'add_deny' => 'int'),
+	array(
+		array('mark_best_answer_own', 0, 1, 1)
+	),
+	array('permission', 'id_group', 'id_profile')
+);
