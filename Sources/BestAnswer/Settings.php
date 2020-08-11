@@ -2,18 +2,20 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerSettings
+namespace SychO\BestAnswer;
+
+class Settings
 {
 	/**
 	 * Registers the rest of the hooks
 	 */
 	public static function init()
 	{
-		add_integration_function('integrate_general_mod_settings', 'BestAnswerSettings::addSettings', false);
+		add_integration_function('integrate_general_mod_settings', '\SychO\BestAnswer\Settings::addSettings', false);
 	}
 
 	/**

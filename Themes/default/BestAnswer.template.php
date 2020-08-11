@@ -2,7 +2,7 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 

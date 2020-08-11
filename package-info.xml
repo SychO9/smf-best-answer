@@ -16,16 +16,18 @@
 		<require-dir name="Themes" destination="$boarddir" />
 
 		<!-- hooks -->
-		<hook hook="integrate_pre_load" function="BestAnswer::init" file="$sourcedir/BestAnswer/BestAnswer.php" />
+		<hook hook="integrate_autoload" function="sycho_best_answer_autoload" file="$sourcedir/BestAnswer/autoload.php" />
 	</install>
 
 	<uninstall for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
 		<!-- hooks -->
-		<hook hook="integrate_pre_load" function="BestAnswer::init" file="$sourcedir/BestAnswer/BestAnswer.php" reverse="true"/>
+		<hook hook="integrate_autoload" function="sycho_best_answer_autoload" file="$sourcedir/BestAnswer/autoload.php" reverse="true"/>
 
 		<!-- files -->
-		<remove-dir name="$sourcedir/FA-BoardIcons" />
-		<remove-file name="$languagedir/FA-BoardIcons.english.php" />
+		<remove-dir name="$sourcedir/BestAnswer" />
+		<remove-file name="$languagedir/BestAnswer.english.php" />
+		<remove-file name="$themedir/default/BestAnswer.template.php" />
+		<remove-file name="$themedir/default/images/post/tick-circle.png" />
 	</uninstall>
 
 </package-info>

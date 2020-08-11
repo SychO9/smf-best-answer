@@ -2,26 +2,28 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerTopicListView
+namespace SychO\BestAnswer;
+
+class TopicListView
 {
 	/**
 	 * Registers the rest of the hooks
 	 */
 	public static function init()
 	{
-		if (isset($_GET['board']) && BestAnswerSettings::isEnabledForBoard((int) $_GET['board']))
+		if (isset($_GET['board']) && Settings::isEnabledForBoard((int) $_GET['board']))
 		{
-			add_integration_function('integrate_message_index', 'BestAnswerTopicListView::selectBestMsg', false);
-			add_integration_function('integrate_messageindex_buttons', 'BestAnswerTopicListView::markSolvedTopics', false);
+			add_integration_function('integrate_message_index', '\SychO\BestAnswer\TopicListView::selectBestMsg', false);
+			add_integration_function('integrate_messageindex_buttons', '\SychO\BestAnswer\TopicListView::markSolvedTopics', false);
 		}
-		elseif (in_array($_GET['action'], array('unread', 'unreadreplies')))
+		elseif (!empty($_GET['action']) && in_array($_GET['action'], array('unread', 'unreadreplies')))
 		{
-			add_integration_function('integrate_unread_list', 'BestAnswerTopicListView::loadBestMsgs', false);
-			add_integration_function('integrate_unread_list', 'BestAnswerTopicListView::markSolvedTopics', false);
+			add_integration_function('integrate_unread_list', '\SychO\BestAnswer\TopicListView::loadBestMsgs', false);
+			add_integration_function('integrate_unread_list', '\SychO\BestAnswer\TopicListView::markSolvedTopics', false);
 		}
 	}
 
@@ -77,7 +79,7 @@ class BestAnswerTopicListView
 		{
 			$board_id = isset($topic['id_board']) ? $topic['id_board'] : (isset($topic['board'], $topic['board']['id']) ? $topic['board']['id'] : 0);
 
-			if (empty($_GET['board']) && !empty($board_id) && !BestAnswerSettings::isEnabledForBoard($board_id))
+			if (empty($_GET['board']) && !empty($board_id) && !Settings::isEnabledForBoard($board_id))
 				continue;
 
 			if (!empty($topic['id_best_msg']))

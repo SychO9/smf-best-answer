@@ -2,11 +2,13 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerTopicView
+namespace SychO\BestAnswer;
+
+class TopicView
 {
 	/**
 	 * Registers the rest of the hooks
@@ -20,15 +22,13 @@ class BestAnswerTopicView
 		loadLanguage('BestAnswer');
 		loadTemplate('BestAnswer');
 
-		add_integration_function('integrate_display_topic', 'BestAnswerTopicView::selectBestMsg', false);
-		add_integration_function('integrate_display_message_list', 'BestAnswerTopicView::loadBestAnswer', false);
-		add_integration_function('integrate_prepare_display_context', 'BestAnswerTopicView::prepareMsgContext', false);
-		add_integration_function('integrate_load_theme', 'BestAnswerTopicView::addMinimalCss', false);
-		add_integration_function('integrate_buffer', 'BestAnswerTopicView::buffer', false);
+		add_integration_function('integrate_display_topic', '\SychO\BestAnswer\TopicView::selectBestMsg', false);
+		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\TopicView::loadBestAnswer', false);
+		add_integration_function('integrate_prepare_display_context', '\SychO\BestAnswer\TopicView::prepareMsgContext', false);
+		add_integration_function('integrate_load_theme', '\SychO\BestAnswer\TopicView::addMinimalCss', false);
+		add_integration_function('integrate_buffer', '\SychO\BestAnswer\TopicView::buffer', false);
 
-		require_once __DIR__.'/BestAnswerActions.php';
-
-		BestAnswerActions::init();
+		Actions::init();
 	}
 
 	/**
@@ -70,7 +70,7 @@ class BestAnswerTopicView
 	{
 		global $smcFunc, $context, $scripturl;
 
-		if (empty($context['topicinfo']['id_best_msg']) || !BestAnswerSettings::isEnabledForBoard($context['topicinfo']['id_board']))
+		if (empty($context['topicinfo']['id_best_msg']) || !Settings::isEnabledForBoard($context['topicinfo']['id_board']))
 			return;
 
 		$request = $smcFunc['db_query']('', '

@@ -2,19 +2,21 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerPermissions
+namespace SychO\BestAnswer;
+
+class Permissions
 {
 	/**
 	 * Registers the rest of the hooks
 	 */
 	public static function init()
 	{
-		add_integration_function('integrate_load_permissions', 'BestAnswerPermissions::addPermissions', false);
-		add_integration_function('integrate_helpadmin', 'BestAnswerPermissions::loadHelpText', false);
+		add_integration_function('integrate_load_permissions', '\SychO\BestAnswer\Permissions::addPermissions', false);
+		add_integration_function('integrate_helpadmin', '\SychO\BestAnswer\Permissions::loadHelpText', false);
 	}
 
 	/**

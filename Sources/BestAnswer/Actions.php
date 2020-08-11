@@ -2,14 +2,16 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerActions
+namespace SychO\BestAnswer;
+
+class Actions
 {
 	/**
-	 * @var BestAnswerPolicy
+	 * @var Policy
 	 */
 	protected static $policy;
 
@@ -18,13 +20,11 @@ class BestAnswerActions
 	 */
 	public static function init()
 	{
-		add_integration_function('integrate_display_message_list', 'BestAnswerActions::createPolicy', false);
-		add_integration_function('integrate_prepare_display_context', 'BestAnswerActions::addPostQuickButton', false);
-		add_integration_function('integrate_best_answer_quickbuttons', 'BestAnswerActions::addBestAnswerQuickButton', false);
-		add_integration_function('integrate_display_message_list', 'BestAnswerActions::markBestAnswer', false);
-		add_integration_function('integrate_display_message_list', 'BestAnswerActions::unmarkBestAnswer', false);
-
-		require_once __DIR__.'/BestAnswerPolicy.php';
+		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\Actions::createPolicy', false);
+		add_integration_function('integrate_prepare_display_context', '\SychO\BestAnswer\Actions::addPostQuickButton', false);
+		add_integration_function('integrate_best_answer_quickbuttons', '\SychO\BestAnswer\Actions::addBestAnswerQuickButton', false);
+		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\Actions::markBestAnswer', false);
+		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\Actions::unmarkBestAnswer', false);
 	}
 
 	/**
@@ -32,7 +32,7 @@ class BestAnswerActions
 	 */
 	public static function createPolicy()
 	{
-		self::$policy = new BestAnswerPolicy($GLOBALS['context']['topicinfo']);
+		self::$policy = new Policy($GLOBALS['context']['topicinfo']);
 	}
 
 	/**

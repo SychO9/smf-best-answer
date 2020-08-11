@@ -2,11 +2,13 @@
 
 /**
  * @package BestAnswer
- * @author Sami "SychO" Mazouz
+ * @author Sami "SychO" Mazouz (sychocouldy@gmail.com)
  * @license MIT
  */
 
-class BestAnswerPolicy
+namespace SychO\BestAnswer;
+
+class Policy
 {
 	/**
 	 * @var array
@@ -31,7 +33,7 @@ class BestAnswerPolicy
 		if ($user_info['is_guest'])
 			return false;
 
-		if (! BestAnswerSettings::isEnabledForBoard($this->topicinfo['id_board']))
+		if (! Settings::isEnabledForBoard($this->topicinfo['id_board']))
 			return false;
 
 		return
