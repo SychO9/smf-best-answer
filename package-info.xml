@@ -4,7 +4,7 @@
 	<name>Best Answer</name>
 	<id>SychO:BestAnswer</id>
 	<type>modification</type>
-	<version>0.1.0</version>
+	<version>0.1.2</version>
 
 	<install for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
 		<readme type="file" parsebbc="true">README.md</readme>
