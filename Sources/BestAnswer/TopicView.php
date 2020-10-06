@@ -18,6 +18,10 @@ class TopicView
 	 */
 	public static function selectBestMsg(&$topic_selects, &$topic_tables, &$topic_parameters)
 	{
+		// Load the language and template files
+		loadLanguage('BestAnswer');
+		loadTemplate('BestAnswer');
+
 		$topic_selects += array('t.id_best_msg', 't.id_board');
 	}
 

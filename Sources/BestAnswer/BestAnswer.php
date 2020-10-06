@@ -56,10 +56,6 @@ class BestAnswer
 		if (empty($_GET['topic']))
 			return;
 
-		// good spot to load the language and template files
-		loadLanguage('BestAnswer');
-		loadTemplate('BestAnswer');
-
 		add_integration_function('integrate_display_topic', '\SychO\BestAnswer\TopicView::selectBestMsg', false);
 		add_integration_function('integrate_display_message_list', '\SychO\BestAnswer\TopicView::loadBestAnswer', false);
 		add_integration_function('integrate_prepare_display_context', '\SychO\BestAnswer\TopicView::prepareMsgContext', false);
