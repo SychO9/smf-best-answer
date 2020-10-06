@@ -4,7 +4,7 @@
 	<name>Best Answer</name>
 	<id>SychO:BestAnswer</id>
 	<type>modification</type>
-	<version>0.1.0</version>
+	<version>0.1.2</version>
 
 	<install for="2.1 - 2.1.99, 2.1 RC3, 2.1 RC4">
 		<readme type="file" parsebbc="true">README.md</readme>
@@ -15,13 +15,13 @@
 		<require-dir name="Sources" destination="$boarddir">Import Source Files</require-dir>
 		
 		<!-- Languages -->
-		<require-dir name="Themes/default/languages" destination="$themedir/languages">Import Language Files</require-dir>
+		<require-dir name="Themes/default/languages" destination="$themedir">Import Language Files</require-dir>
 		
 		<!-- Templates -->
 		<require-file name="Themes/default/BestAnswer.template.php" destination="$themedir">Import Template File</require-file>
 		
 		<!-- Images -->
-		<require-dir name="Theme/default/images" destination="$imagesdir" />
+		<require-dir name="Themes/default/images/post" destination="$imagesdir" />
 
 		<!-- hooks -->
 		<hook hook="integrate_pre_load" function="sycho_best_answer_boot" file="$sourcedir/BestAnswer/autoload.php" />
