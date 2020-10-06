@@ -15,7 +15,7 @@
 		<require-dir name="Sources" destination="$boarddir">Import Source Files</require-dir>
 		
 		<!-- Languages -->
-		<require-dir name="Themes/default/languages" destination="$themedir/languages">Import Language Files</require-dir>
+		<require-dir name="Themes/default/languages" destination="$themedir">Import Language Files</require-dir>
 		
 		<!-- Templates -->
 		<require-file name="Themes/default/BestAnswer.template.php" destination="$themedir">Import Template File</require-file>
