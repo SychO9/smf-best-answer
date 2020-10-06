@@ -11,9 +11,17 @@
 		<redirect url="?action=admin;area=modsettings;sa=general" timeout="3000" type="inline">You will now be redirected to the default settings.</redirect>
 		<database>database.php</database>
 
-		<!-- files -->
+		<!-- Sources -->
 		<require-dir name="Sources" destination="$boarddir">Import Source Files</require-dir>
-		<require-dir name="Themes" destination="$boarddir">Import Theme Files</require-dir>
+		
+		<!-- Languages -->
+		<require-dir name="Themes/default/languages" destination="$themedir/languages">Import Language Files</require-dir>
+		
+		<!-- Templates -->
+		<require-file name="Themes/default/BestAnswer.template.php" destination="$themedir">Import Template File</require-file>
+		
+		<!-- Images -->
+		<require-dir name="Theme/default/images" destination="$imagesdir" />
 
 		<!-- hooks -->
 		<hook hook="integrate_pre_load" function="sycho_best_answer_boot" file="$sourcedir/BestAnswer/autoload.php" />
@@ -27,7 +35,7 @@
 		<remove-dir name="$sourcedir/BestAnswer">Remove Source Files</remove-dir>
 		<remove-file name="$languagedir/BestAnswer.english.php">Remove English Language File</remove-file>
 		<remove-file name="$themedir/BestAnswer.template.php">Remove Theme Template File</remove-file>
-		<remove-file name="$themedir/images/post/tick-circle.png">Remove Icon</remove-file>
+		<remove-file name="$imagesdir/post/tick-circle.png">Remove Icon</remove-file>
 	</uninstall>
 
 </package-info>
