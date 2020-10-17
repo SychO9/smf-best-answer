@@ -5,6 +5,8 @@
 
 SMF2.1 mod to mark a reply as best answer.
 
+![smf lan_index php_topic=1 0 (1)](https://user-images.githubusercontent.com/20267363/96333331-2004f500-1061-11eb-8018-7e07af4427a3.png)
+
 ## Installation
 Download the latest release package and upload in the package manager of your forum.
 
