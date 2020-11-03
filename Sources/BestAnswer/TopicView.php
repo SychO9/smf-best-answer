@@ -22,7 +22,8 @@ class TopicView
 		loadLanguage('BestAnswer');
 		loadTemplate('BestAnswer');
 
-		$topic_selects += array('t.id_best_msg', 't.id_board');
+		$topic_selects[] = 't.id_best_msg';
+		$topic_selects[] = 't.id_board';
 	}
 
 	/**
