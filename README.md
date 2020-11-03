@@ -2,6 +2,7 @@
 ![Latest Version](https://img.shields.io/github/release/SychO9/smf-best-answer.svg?style=flat-square)
 ![SMF2.1](https://img.shields.io/badge/SMF-2.1-blue.svg?style=flat-square&color=ed6033)
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square&color=green)
+[![donate](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-%23ffde39?style=flat-square)](https://www.buymeacoffee.com/sycho)
 
 SMF2.1 mod to mark a reply as best answer.
 
