@@ -13,6 +13,9 @@ if (file_exists(__DIR__.'/SSI.php') && !defined('SMF'))
 elseif (!defined('SMF'))
 	die('<b>Error:</b> Cannot install - please verify you put this in the same place as SMF\'s index.php.');
 
+if (version_compare(PHP_VERSION, '7.2.99', '<='))
+	die('This mod is not compatible with PHP versions lower than or equal to 7.2');
+
 db_extend('packages');
 
 // Add the 'id_best_msg' column to smf_topics table
