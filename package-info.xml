@@ -35,6 +35,8 @@
 		<remove-dir name="$sourcedir/BestAnswer">Remove Source Files</remove-dir>
 		<remove-file name="$languagedir/BestAnswer.english.php">Remove English Language File</remove-file>
 		<remove-file name="$languagedir/BestAnswer.russian.php">Remove Russian Language File</remove-file>
+		<remove-file name="$languagedir/BestAnswer.spanish_es.php">Remove Spanish Language File</remove-file>
+		<remove-file name="$languagedir/BestAnswer.spanish_latin.php">Remove Spanish Latin Language File</remove-file>
 		<remove-file name="$themedir/BestAnswer.template.php">Remove Theme Template File</remove-file>
 		<remove-file name="$imagesdir/post/tick-circle.png">Remove Icon</remove-file>
 	</uninstall>
