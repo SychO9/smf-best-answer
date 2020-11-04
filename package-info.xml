@@ -13,13 +13,13 @@
 
 		<!-- Sources -->
 		<require-dir name="Sources" destination="$boarddir">Import Source Files</require-dir>
-		
+
 		<!-- Languages -->
 		<require-dir name="Themes/default/languages" destination="$themedir">Import Language Files</require-dir>
-		
+
 		<!-- Templates -->
 		<require-file name="Themes/default/BestAnswer.template.php" destination="$themedir">Import Template File</require-file>
-		
+
 		<!-- Images -->
 		<require-dir name="Themes/default/images/post" destination="$imagesdir" />
 
@@ -34,6 +34,7 @@
 		<!-- files -->
 		<remove-dir name="$sourcedir/BestAnswer">Remove Source Files</remove-dir>
 		<remove-file name="$languagedir/BestAnswer.english.php">Remove English Language File</remove-file>
+		<remove-file name="$languagedir/BestAnswer.russian.php">Remove Russian Language File</remove-file>
 		<remove-file name="$themedir/BestAnswer.template.php">Remove Theme Template File</remove-file>
 		<remove-file name="$imagesdir/post/tick-circle.png">Remove Icon</remove-file>
 	</uninstall>
