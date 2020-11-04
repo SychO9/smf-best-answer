@@ -100,7 +100,7 @@ class Actions
 				'current_topic' => (int) $context['current_topic'],
 			)
 		);
-		list($id_msg, $id_user) = $smcFunc['db_fetch_row']($request);
+		list($id_msg, $id_member) = $smcFunc['db_fetch_row']($request);
 		$smcFunc['db_free_result']($request);
 
 		// So you're trying to do some sneaky things huh.. well not today.
@@ -118,7 +118,7 @@ class Actions
 		);
 
 		// Integrate with other mods
-		call_integration_hook('integrate_sycho_best_answer', array($id_msg, $id_user));
+		call_integration_hook('integrate_sycho_best_answer', array($id_msg, $id_member));
 
 		redirectexit("topic={$context['current_topic']}");
 	}
