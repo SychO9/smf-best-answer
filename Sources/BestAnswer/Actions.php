@@ -91,7 +91,7 @@ class Actions
 
 		// Make sure the msg id supplied actually belongs to this topic
 		$request = $smcFunc['db_query']('', '
-			SELECT id_msg
+			SELECT id_msg, id_member
 			FROM {db_prefix}messages
 			WHERE id_topic = {int:current_topic}
 				AND id_msg = {int:best_answer}',
@@ -100,7 +100,7 @@ class Actions
 				'current_topic' => (int) $context['current_topic'],
 			)
 		);
-		list($id_msg) = $smcFunc['db_fetch_row']($request);
+		list($id_msg, $id_member) = $smcFunc['db_fetch_row']($request);
 		$smcFunc['db_free_result']($request);
 
 		// So you're trying to do some sneaky things huh.. well not today.
@@ -116,6 +116,9 @@ class Actions
 				'current_topic' => (int) $context['current_topic'],
 			)
 		);
+
+		// Integrate with other mods
+		call_integration_hook('integrate_sycho_best_answer', array($id_msg, $id_member));
 
 		redirectexit("topic={$context['current_topic']}");
 	}
