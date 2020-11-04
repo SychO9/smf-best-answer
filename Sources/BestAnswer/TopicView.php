@@ -68,6 +68,7 @@ class TopicView
 		$context['best_answer'] = $smcFunc['db_fetch_assoc']($request);
 		$smcFunc['db_free_result']($request);
 
+		$context['best_answer']['body'] = parse_bbc($context['best_answer']['body']);
 		$context['best_answer']['href'] = $scripturl.'?msg='.$context['best_answer']['id_msg'];
 
 		// Make sure the poster is loaded later on
