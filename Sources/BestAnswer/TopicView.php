@@ -72,8 +72,8 @@ class TopicView
 		$context['best_answer']['href'] = $scripturl.'?msg='.$context['best_answer']['id_msg'];
 
 		// Make sure the poster is loaded later on
-		if (!in_array($context['best_answer']['id_member'], $posters))
-			$posters[] = $context['best_answer']['id_member'];
+		if (! in_array($context['best_answer']['id_member'], $posters))
+			$posters[$context['topicinfo']['id_best_msg']] = $context['best_answer']['id_member'];
 	}
 
 	/**
@@ -132,6 +132,9 @@ class TopicView
 
 		if (strpos($buffer, '<hr class="post_separator">') === false)
 			return $buffer;
+
+		if (empty($memberContext[$context['best_answer']['id_member']]))
+			loadMemberContext($context['best_answer']['id_member']);
 
 		$context['best_answer']['member'] = &$memberContext[$context['best_answer']['id_member']];
 
