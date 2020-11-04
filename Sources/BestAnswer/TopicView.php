@@ -137,7 +137,7 @@ class TopicView
 
 		// Are likes enable?
 		if (!empty($modSettings['enable_likes']))
-			$context['best_answer']['likes'] = array(
+			$context['best_answer']['likes_array'] = array(
 				'count' => $context['best_answer']['likes'],
 				'you' => in_array($context['best_answer']['id_msg'], $context['my_likes']),
 				'can_like' => !$context['user']['is_guest'] && $context['best_answer']['id_member'] != $context['user']['id'] && !empty($context['can_like']),

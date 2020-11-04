@@ -61,13 +61,13 @@ function template_best_answer_single_post($best_answer)
 									</li>';
 		}
 
-		if (!empty($best_answer['likes']['count']))
+		if (!empty($best_answer['likes_array']['count']))
 		{
 			$context['some_likes'] = true;
-			$count = $best_answer['likes']['count'];
+			$count = $best_answer['likes_array']['count'];
 			$base = 'likes_';
 
-			if ($best_answer['likes']['you'])
+			if ($best_answer['likes_array']['you'])
 			{
 				$base = 'you_' . $base;
 				$count--;
@@ -88,7 +88,7 @@ function template_best_answer_single_post($best_answer)
 	$output .= template_quickbuttons(array(), 'best_answer', 'return');
 
 	$output .= '
-                    </div>
+					</div>
 				</div>
 			</div>
 			<!-- .post_wrapper -->
