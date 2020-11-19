@@ -13,7 +13,7 @@ class BestAnswer
 	/**
 	 * @var string
 	 */
-	const VERSION = '0.1.7';
+	const VERSION = '0.1.8';
 
 	/**
 	 * Registers the rest of the hooks
