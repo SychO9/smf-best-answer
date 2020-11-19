@@ -21,7 +21,7 @@
 		<require-file name="Themes/default/BestAnswer.template.php" destination="$themedir">Import Template File</require-file>
 
 		<!-- Images -->
-		<require-dir name="Themes/default/images/post" destination="$imagesdir" />
+		<require-dir name="Themes/default/images/post" destination="$imagesdir">Import Icon Image</require-dir>>
 
 		<!-- hooks -->
 		<hook hook="integrate_pre_load" function="sycho_best_answer_boot" file="$sourcedir/BestAnswer/autoload.php" />
