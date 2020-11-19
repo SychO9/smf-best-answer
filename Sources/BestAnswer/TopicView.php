@@ -147,7 +147,7 @@ class TopicView
 			);
 
 		$buffer = preg_replace(
-			'/<div class="[^"]*class_msg_'.$context['topicinfo']['id_first_msg'].'[^0-9]+[^"]*">((?!<hr class="post_separator">).)*<hr class="post_separator">/ms',
+			'/<div class="[^"]*class_msg_'.$context['topicinfo']['id_first_msg'].'[^0-9]+[^"]*">.*?<hr class="post_separator">/msu',
 			'$0 '.template_best_answer_single_post($context['best_answer']),
 			$buffer
 		);
