@@ -48,7 +48,8 @@ class TopicListView
 	 */
 	public static function selectBestMsg(&$message_index_selects)
 	{
-		$message_index_selects += array('t.id_best_msg', 't.id_board');
+		$message_index_selects[] = 't.id_best_msg';
+		$message_index_selects[] = 't.id_board';
 	}
 
 	/**
